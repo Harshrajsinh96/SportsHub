@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Choose Winner</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="winner" padding>
+  <h1>Did the match finish?</h1>
+  <div class="winner-box">
+
+    <form (ngSubmit)="winner()" #winnerForm="ngForm">
+      <ion-row>
+        <ion-col>
+          <ion-list inset>
+
+            <ion-item>
+              <ion-label> Which won that match? </ion-label>
+                  <ion-select [(ngModel)]="winnerCredentials.winnerMatch" name="winnerMatch" required>
+                    <ion-option value="self">You</ion-option>
+                    <ion-option value="opponent">Opponent</ion-option>
+                  </ion-select>
+            </ion-item>
+
+          </ion-list>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+          <ion-col class="winner-col">
+          <button ion-button class="submit-btn" full type="submit" [disabled]="!winnerForm.form.valid">See your Progress</button>
+          </ion-col>
+        </ion-row>
+    <!--<ion-row>
+      <ion-col>
+        <ion-list radio-group [(ngModel)]="winner">
+          <ion-item>
+            <ion-label>You</ion-label>
+            <ion-radio value="you" checked></ion-radio>
+          </ion-item>
+          <ion-item>
+              <ion-label>Opponent</ion-label>
+              <ion-radio value="opponent"></ion-radio>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+          <form (ngSubmit)="winner()" #matchForm="ngForm">
+              <ion-row>
+                 <ion-col class="match-col">
+                 <button ion-button class="submit-btn" full type="submit" >Show Stats</button>
+                 </ion-col>
+               </ion-row>-->
+
+    </form>
+  </div>
+</ion-content>

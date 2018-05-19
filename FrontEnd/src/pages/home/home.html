@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>
+      Member Area, Welcome {{useremail}}
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="stats()">
+       <ion-icon name="ribbon"></ion-icon>
+     </button>
+      <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+    </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+  <h3>Welcome to Sports Hub!</h3>
+  <div class="home-box">
+
+  <form (ngSubmit)="findmatch()" #matchForm="ngForm">
+
+    <ion-row>
+      <ion-col>
+        <ion-list inset>
+
+          <ion-item>
+            <ion-label> Sport </ion-label>
+            <ion-select [(ngModel)]="matchCredentials.sport" name="sport" required>
+              <ion-option value="tennis">Tennis</ion-option>
+              <ion-option value="badminton">Badminton</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label> Level </ion-label>
+            <ion-select [(ngModel)]="matchCredentials.level" name="level" required>
+              <ion-option value="beginner">Beginner</ion-option>
+              <ion-option value="intermediate">Intermediate</ion-option>
+              <ion-option value="advanced">Advanced</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="time" placeholder="Time" name="time" [(ngModel)]="matchCredentials.time" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-input type="zipcode" placeholder="Zipcode" name="zipcode" [(ngModel)]="matchCredentials.zipcode" required></ion-input>
+          </ion-item>
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col class="match-col">
+      <button ion-button class="submit-btn" full type="submit" [disabled]="!matchForm.form.valid">Find A Match</button>
+      </ion-col>
+    </ion-row>
+
+  </form>
+</div>
+</ion-content>
