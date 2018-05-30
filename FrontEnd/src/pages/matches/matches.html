@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Matches</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="matches" padding>
+  <h3>Hey, Here you go!</h3>
+  <h2>Here is your match</h2>
+  <hr>
+
+  <ion-list>
+    <ion-item *ngFor="let item of samples">
+      <h2>{{item.Opponent}}</h2>
+      <h2>{{item.Level}}</h2>
+      <h2>{{item.Time}}</h2>
+      <h2>{{item.Place}}</h2>
+    </ion-item>
+  </ion-list>
+
+    <div class="matches-box">
+      <form (ngSubmit)="letsPlay()" #matchesForm="ngForm">
+        <ion-row>
+          <ion-col class="match-col">
+            <button ion-button class="submit-btn" full type="submit">Let's Play</button>
+          </ion-col>
+        </ion-row>
+      </form>
+    </div>
+</ion-content>
